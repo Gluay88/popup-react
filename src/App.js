@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Popup from "./components/Popup";
 
 function App() {
+  const [buttonPopup, setButtonPopup] = useState(false);
+  // const [timePopup, setTimePopup] = useState(false);
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setTimePopup(true);
+  //   }, 3000);
+  // }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <main>
+        <h1>React Popups</h1>
+        <br />
+        <button onClick={() => setButtonPopup(true)}>Open Popup</button>
+      </main>
+      <Popup triggle={buttonPopup} setTriggle={setButtonPopup}>
+        {/* children here */}
+        <h3>My popup</h3>
+        <p>This is my button triggerd popup</p>
+      </Popup>
+      {/* <Popup triggle={timePopup} setTriggle={setTimePopup}>
+        <h3>My Timed Popup</h3>
+        <p>This is my time triggerd popup</p>
+      </Popup> */}
     </div>
   );
 }
